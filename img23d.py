@@ -17,7 +17,6 @@ guidance_scale = 3.0 # this is the scale of the guidance, higher values make the
 # prompt = "mid century sofa" # this is the prompt, you can change this to anything you want.
 
 image = load_image("img.png")
-image1 = load_image("img2.png")
 
 print("i got the image kos kesh")
 
@@ -26,7 +25,7 @@ latents = sample_latents(
     model=model,
     diffusion=diffusion,
     guidance_scale=guidance_scale,
-    model_kwargs=dict(images=[image, image1] * batch_size),
+    model_kwargs=dict(images=[image] * batch_size),
     progress=True,
     clip_denoised=True,
     use_fp16=True,
