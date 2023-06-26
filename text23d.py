@@ -13,7 +13,7 @@ diffusion = diffusion_from_config(load_config('diffusion'))
 
 batch_size = 1 # this is the size of the models, higher values take longer to generate.
 guidance_scale = 15.0 # this is the scale of the guidance, higher values make the model look more like the prompt.
-prompt = "mid century sofa" # this is the prompt, you can change this to anything you want.
+prompt = "a chair that looks like an avacado" # this is the prompt, you can change this to anything you want.
 
 latents = sample_latents(
     batch_size=batch_size,

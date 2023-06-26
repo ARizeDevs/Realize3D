@@ -12,11 +12,12 @@ xm = load_model('transmitter', device=device)
 model = load_model('image300M', device=device)
 diffusion = diffusion_from_config(load_config('diffusion')) 
 
-batch_size = 4 # this is the size of the models, higher values take longer to generate.
-guidance_scale = 20.0 # this is the scale of the guidance, higher values make the model look more like the prompt.
+batch_size = 1 # this is the size of the models, higher values take longer to generate.
+guidance_scale = 3.0 # this is the scale of the guidance, higher values make the model look more like the prompt.
 # prompt = "mid century sofa" # this is the prompt, you can change this to anything you want.
 
 image = load_image("img.png")
+image1 = load_image("img2.png")
 
 print("i got the image kos kesh")
 
@@ -25,7 +26,7 @@ latents = sample_latents(
     model=model,
     diffusion=diffusion,
     guidance_scale=guidance_scale,
-    model_kwargs=dict(images=[image] * batch_size),
+    model_kwargs=dict(images=[image, image1] * batch_size),
     progress=True,
     clip_denoised=True,
     use_fp16=True,
